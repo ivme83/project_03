@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "start": "concurrently \"cd server && npm run start\" \"cd client && npm run start\"",
+    "build": "cd client && npm run build",
+    "deploy": "cd server $$ git add . && git commit -m \"Deploying to Heroku\" && git push heroku master && cd .. && cd client && yarn build && git add . && git commit -m \"Deploying to Heroku\" && git push heroku master",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "installDeps": "cd server && yarn && cd .. && cd client && yarn"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^3.5.1"
+  }
+}
